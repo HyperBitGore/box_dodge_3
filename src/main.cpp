@@ -6,13 +6,13 @@ gore::LogType::CONSOLE
 
 gore::drawpass dr(1024, 768, GL_COLOR_ATTACHMENT0);
 
-Entity player(500.0f, 350.0f, 50.0f, 50.0f);
+Entity player(500.0f, 350.0f, 32.0f, 32.0f);
 std::vector<Entity> enemies;
 uint32_t globalWidth, globalHeight;
 
 void renderFunction () {
-    //dr.clear();
     //dr.bind();
+    //dr.clear();
     g_eng.prim_r->setColor({ 0.0f, 255.0f, 0.0f, 255.0f});
     g_eng.prim_r->drawQuad(player.pos, player.dimen.x, player.dimen.y);
     g_eng.prim_r->setColor({255.0f, 0.0f, 0.0f, 255.0f});
@@ -30,15 +30,32 @@ float randomFloat(float min, float max) {
     return dis(gen);
 }
 
+int vpW, vpH;
+
 void resizeFunction (uint32_t width, uint32_t height) {
     dr.resize(width, height);
     globalWidth = width;
     globalHeight = height;
+    float targetAspect = 1024.0f / 768.0f;
+    float windowAspect = (float)width / (float)height;
+    int vpX = 0, vpY = 0;
+    vpW = width;
+    vpH = height;
+
+    if (windowAspect > targetAspect) {
+        vpW = (int)(width * targetAspect);
+        vpX = (width - vpW) / 2;
+    } else {
+        vpH = (int)(width / targetAspect);
+        vpY = (height - vpH) / 2;
+    }
+    glViewport(vpX, vpY, vpW, vpH);
 }
 
 int main () {
     g_eng.setRenderFunction(renderFunction);
     g_eng.setWindowResize(resizeFunction);
+    g_eng.toggleMaintainViewport();
     double player_move_delay = 0.0f;
     double enemy_spawn_delay = 0.0f;
     double enemy_spawn_max = 1.0f;
@@ -53,28 +70,28 @@ int main () {
             if ( g_eng.getKeyDown(g_a) && player.pos.x >= 0.0f) {
                 player.pos.x -= 1.0f;
                 player_move_delay = 0;
-            } else if ( g_eng.getKeyDown(g_d) && player.pos.x + player.dimen.x < 1024) {
+            } else if ( g_eng.getKeyDown(g_d) && player.pos.x + player.dimen.x < vpW) {
                 player.pos.x += 1.0f;
                 player_move_delay = 0;
             }
-            if ( g_eng.getKeyDown(g_w) ) {
+            if ( g_eng.getKeyDown(g_w) && player.pos.y >= 0.0f) {
                 player.pos.y -= 1.0f;
                 player_move_delay = 0;
-            } else if ( g_eng.getKeyDown(g_s) ) {
+            } else if ( g_eng.getKeyDown(g_s) && player.pos.y + player.dimen.y < vpH) {
                 player.pos.y += 1.0f;
                 player_move_delay = 0;
             }
         }
         if (enemy_spawn_delay >= enemy_spawn_max) {
             float randx = randomFloat(0.0f, 800.0f);
-            Entity enem(randx, 0.0f, 50.0f, 50.0f);
+            Entity enem(randx, 0.0f, 32.0f, 32.0f);
             enemies.push_back(enem);
             enemy_spawn_delay = 0.0f;
         }
         if (enemy_move_delay >= 0.001f) {
             for (size_t i = 0; i < enemies.size();) {
                 enemies[i].pos.y += 1.0f;
-                if (enemies[i].pos.y >= 768) {
+                if (enemies[i].pos.y >= vpH + enemies[i].dimen.y) {
                     enemies.erase(enemies.begin() + i);
                 } else {
                     i++;

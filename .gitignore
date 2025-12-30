@@ -1,0 +1,4 @@
+build/
+font_loader.log
+.vscode/
+.cache/

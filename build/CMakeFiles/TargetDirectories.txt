@@ -1,3 +1,0 @@
-/home/kopp/dev/c/box_dodge_3/build/CMakeFiles/box_dodge3.dir
-/home/kopp/dev/c/box_dodge_3/build/CMakeFiles/edit_cache.dir
-/home/kopp/dev/c/box_dodge_3/build/CMakeFiles/rebuild_cache.dir
