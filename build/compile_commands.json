@@ -1,0 +1,116 @@
+[
+{
+  "directory": "/home/kopp/dev/c/box_dodge_3/build",
+  "command": "/usr/bin/clang++ -I/home/kopp/dev/c/box_dodge_3/include/GL -g -std=c++17 -o CMakeFiles/box_dodge3.dir/src/main.cpp.o -c /home/kopp/dev/c/box_dodge_3/src/main.cpp",
+  "file": "/home/kopp/dev/c/box_dodge_3/src/main.cpp",
+  "output": "/home/kopp/dev/c/box_dodge_3/build/CMakeFiles/box_dodge3.dir/src/main.cpp.o"
+},
+{
+  "directory": "/home/kopp/dev/c/box_dodge_3/build",
+  "command": "/usr/bin/clang++ -I/home/kopp/dev/c/box_dodge_3/include/GL -g -std=c++17 -o CMakeFiles/box_dodge3.dir/include/g_engine/audio/audio_player.cpp.o -c /home/kopp/dev/c/box_dodge_3/include/g_engine/audio/audio_player.cpp",
+  "file": "/home/kopp/dev/c/box_dodge_3/include/g_engine/audio/audio_player.cpp",
+  "output": "/home/kopp/dev/c/box_dodge_3/build/CMakeFiles/box_dodge3.dir/include/g_engine/audio/audio_player.cpp.o"
+},
+{
+  "directory": "/home/kopp/dev/c/box_dodge_3/build",
+  "command": "/usr/bin/clang++ -I/home/kopp/dev/c/box_dodge_3/include/GL -g -std=c++17 -o CMakeFiles/box_dodge3.dir/include/g_engine/engine_modern.cpp.o -c /home/kopp/dev/c/box_dodge_3/include/g_engine/engine_modern.cpp",
+  "file": "/home/kopp/dev/c/box_dodge_3/include/g_engine/engine_modern.cpp",
+  "output": "/home/kopp/dev/c/box_dodge_3/build/CMakeFiles/box_dodge3.dir/include/g_engine/engine_modern.cpp.o"
+},
+{
+  "directory": "/home/kopp/dev/c/box_dodge_3/build",
+  "command": "/usr/bin/clang++ -I/home/kopp/dev/c/box_dodge_3/include/GL -g -std=c++17 -o CMakeFiles/box_dodge3.dir/include/g_engine/engine_start.cpp.o -c /home/kopp/dev/c/box_dodge_3/include/g_engine/engine_start.cpp",
+  "file": "/home/kopp/dev/c/box_dodge_3/include/g_engine/engine_start.cpp",
+  "output": "/home/kopp/dev/c/box_dodge_3/build/CMakeFiles/box_dodge3.dir/include/g_engine/engine_start.cpp.o"
+},
+{
+  "directory": "/home/kopp/dev/c/box_dodge_3/build",
+  "command": "/usr/bin/clang++ -I/home/kopp/dev/c/box_dodge_3/include/GL -g -std=c++17 -o CMakeFiles/box_dodge3.dir/include/g_engine/rendering/font_renderer.cpp.o -c /home/kopp/dev/c/box_dodge_3/include/g_engine/rendering/font_renderer.cpp",
+  "file": "/home/kopp/dev/c/box_dodge_3/include/g_engine/rendering/font_renderer.cpp",
+  "output": "/home/kopp/dev/c/box_dodge_3/build/CMakeFiles/box_dodge3.dir/include/g_engine/rendering/font_renderer.cpp.o"
+},
+{
+  "directory": "/home/kopp/dev/c/box_dodge_3/build",
+  "command": "/usr/bin/clang++ -I/home/kopp/dev/c/box_dodge_3/include/GL -g -std=c++17 -o CMakeFiles/box_dodge3.dir/include/g_engine/function_loader.cpp.o -c /home/kopp/dev/c/box_dodge_3/include/g_engine/function_loader.cpp",
+  "file": "/home/kopp/dev/c/box_dodge_3/include/g_engine/function_loader.cpp",
+  "output": "/home/kopp/dev/c/box_dodge_3/build/CMakeFiles/box_dodge3.dir/include/g_engine/function_loader.cpp.o"
+},
+{
+  "directory": "/home/kopp/dev/c/box_dodge_3/build",
+  "command": "/usr/bin/clang++ -I/home/kopp/dev/c/box_dodge_3/include/GL -g -std=c++17 -o CMakeFiles/box_dodge3.dir/include/g_engine/img_loading/image_loader.cpp.o -c /home/kopp/dev/c/box_dodge_3/include/g_engine/img_loading/image_loader.cpp",
+  "file": "/home/kopp/dev/c/box_dodge_3/include/g_engine/img_loading/image_loader.cpp",
+  "output": "/home/kopp/dev/c/box_dodge_3/build/CMakeFiles/box_dodge3.dir/include/g_engine/img_loading/image_loader.cpp.o"
+},
+{
+  "directory": "/home/kopp/dev/c/box_dodge_3/build",
+  "command": "/usr/bin/clang++ -I/home/kopp/dev/c/box_dodge_3/include/GL -g -std=c++17 -o CMakeFiles/box_dodge3.dir/include/g_engine/input.cpp.o -c /home/kopp/dev/c/box_dodge_3/include/g_engine/input.cpp",
+  "file": "/home/kopp/dev/c/box_dodge_3/include/g_engine/input.cpp",
+  "output": "/home/kopp/dev/c/box_dodge_3/build/CMakeFiles/box_dodge3.dir/include/g_engine/input.cpp.o"
+},
+{
+  "directory": "/home/kopp/dev/c/box_dodge_3/build",
+  "command": "/usr/bin/clang++ -I/home/kopp/dev/c/box_dodge_3/include/GL -g -std=c++17 -o CMakeFiles/box_dodge3.dir/include/g_engine/util/matrix.cpp.o -c /home/kopp/dev/c/box_dodge_3/include/g_engine/util/matrix.cpp",
+  "file": "/home/kopp/dev/c/box_dodge_3/include/g_engine/util/matrix.cpp",
+  "output": "/home/kopp/dev/c/box_dodge_3/build/CMakeFiles/box_dodge3.dir/include/g_engine/util/matrix.cpp.o"
+},
+{
+  "directory": "/home/kopp/dev/c/box_dodge_3/build",
+  "command": "/usr/bin/clang++ -I/home/kopp/dev/c/box_dodge_3/include/GL -g -std=c++17 -o CMakeFiles/box_dodge3.dir/include/g_engine/util/shader.cpp.o -c /home/kopp/dev/c/box_dodge_3/include/g_engine/util/shader.cpp",
+  "file": "/home/kopp/dev/c/box_dodge_3/include/g_engine/util/shader.cpp",
+  "output": "/home/kopp/dev/c/box_dodge_3/build/CMakeFiles/box_dodge3.dir/include/g_engine/util/shader.cpp.o"
+},
+{
+  "directory": "/home/kopp/dev/c/box_dodge_3/build",
+  "command": "/usr/bin/clang++ -I/home/kopp/dev/c/box_dodge_3/include/GL -g -std=c++17 -o CMakeFiles/box_dodge3.dir/include/g_engine/window.cpp.o -c /home/kopp/dev/c/box_dodge_3/include/g_engine/window.cpp",
+  "file": "/home/kopp/dev/c/box_dodge_3/include/g_engine/window.cpp",
+  "output": "/home/kopp/dev/c/box_dodge_3/build/CMakeFiles/box_dodge3.dir/include/g_engine/window.cpp.o"
+},
+{
+  "directory": "/home/kopp/dev/c/box_dodge_3/build",
+  "command": "/usr/bin/clang++ -I/home/kopp/dev/c/box_dodge_3/include/GL -g -std=c++17 -o CMakeFiles/box_dodge3.dir/include/g_engine/util/vector.cpp.o -c /home/kopp/dev/c/box_dodge_3/include/g_engine/util/vector.cpp",
+  "file": "/home/kopp/dev/c/box_dodge_3/include/g_engine/util/vector.cpp",
+  "output": "/home/kopp/dev/c/box_dodge_3/build/CMakeFiles/box_dodge3.dir/include/g_engine/util/vector.cpp.o"
+},
+{
+  "directory": "/home/kopp/dev/c/box_dodge_3/build",
+  "command": "/usr/bin/clang++ -I/home/kopp/dev/c/box_dodge_3/include/GL -g -std=c++17 -o CMakeFiles/box_dodge3.dir/include/g_engine/rendering/primitive_renderer.cpp.o -c /home/kopp/dev/c/box_dodge_3/include/g_engine/rendering/primitive_renderer.cpp",
+  "file": "/home/kopp/dev/c/box_dodge_3/include/g_engine/rendering/primitive_renderer.cpp",
+  "output": "/home/kopp/dev/c/box_dodge_3/build/CMakeFiles/box_dodge3.dir/include/g_engine/rendering/primitive_renderer.cpp.o"
+},
+{
+  "directory": "/home/kopp/dev/c/box_dodge_3/build",
+  "command": "/usr/bin/clang++ -I/home/kopp/dev/c/box_dodge_3/include/GL -g -std=c++17 -o CMakeFiles/box_dodge3.dir/include/g_engine/rendering/image_renderer.cpp.o -c /home/kopp/dev/c/box_dodge_3/include/g_engine/rendering/image_renderer.cpp",
+  "file": "/home/kopp/dev/c/box_dodge_3/include/g_engine/rendering/image_renderer.cpp",
+  "output": "/home/kopp/dev/c/box_dodge_3/build/CMakeFiles/box_dodge3.dir/include/g_engine/rendering/image_renderer.cpp.o"
+},
+{
+  "directory": "/home/kopp/dev/c/box_dodge_3/build",
+  "command": "/usr/bin/clang++ -I/home/kopp/dev/c/box_dodge_3/include/GL -g -std=c++17 -o CMakeFiles/box_dodge3.dir/include/g_engine/img_loading/image_atlas.cpp.o -c /home/kopp/dev/c/box_dodge_3/include/g_engine/img_loading/image_atlas.cpp",
+  "file": "/home/kopp/dev/c/box_dodge_3/include/g_engine/img_loading/image_atlas.cpp",
+  "output": "/home/kopp/dev/c/box_dodge_3/build/CMakeFiles/box_dodge3.dir/include/g_engine/img_loading/image_atlas.cpp.o"
+},
+{
+  "directory": "/home/kopp/dev/c/box_dodge_3/build",
+  "command": "/usr/bin/clang++ -I/home/kopp/dev/c/box_dodge_3/include/GL -g -std=c++17 -o CMakeFiles/box_dodge3.dir/include/g_engine/img_loading/bmp_loader.cpp.o -c /home/kopp/dev/c/box_dodge_3/include/g_engine/img_loading/bmp_loader.cpp",
+  "file": "/home/kopp/dev/c/box_dodge_3/include/g_engine/img_loading/bmp_loader.cpp",
+  "output": "/home/kopp/dev/c/box_dodge_3/build/CMakeFiles/box_dodge3.dir/include/g_engine/img_loading/bmp_loader.cpp.o"
+},
+{
+  "directory": "/home/kopp/dev/c/box_dodge_3/build",
+  "command": "/usr/bin/clang++ -I/home/kopp/dev/c/box_dodge_3/include/GL -g -std=c++17 -o CMakeFiles/box_dodge3.dir/include/g_engine/file_loading/font_loader.cpp.o -c /home/kopp/dev/c/box_dodge_3/include/g_engine/file_loading/font_loader.cpp",
+  "file": "/home/kopp/dev/c/box_dodge_3/include/g_engine/file_loading/font_loader.cpp",
+  "output": "/home/kopp/dev/c/box_dodge_3/build/CMakeFiles/box_dodge3.dir/include/g_engine/file_loading/font_loader.cpp.o"
+},
+{
+  "directory": "/home/kopp/dev/c/box_dodge_3/build",
+  "command": "/usr/bin/clang++ -I/home/kopp/dev/c/box_dodge_3/include/GL -g -std=c++17 -o CMakeFiles/box_dodge3.dir/include/g_engine/img_loading/png_loader.cpp.o -c /home/kopp/dev/c/box_dodge_3/include/g_engine/img_loading/png_loader.cpp",
+  "file": "/home/kopp/dev/c/box_dodge_3/include/g_engine/img_loading/png_loader.cpp",
+  "output": "/home/kopp/dev/c/box_dodge_3/build/CMakeFiles/box_dodge3.dir/include/g_engine/img_loading/png_loader.cpp.o"
+},
+{
+  "directory": "/home/kopp/dev/c/box_dodge_3/build",
+  "command": "/usr/bin/clang++ -I/home/kopp/dev/c/box_dodge_3/include/GL -g -std=c++17 -o CMakeFiles/box_dodge3.dir/include/g_engine/file_loading/file_reader.cpp.o -c /home/kopp/dev/c/box_dodge_3/include/g_engine/file_loading/file_reader.cpp",
+  "file": "/home/kopp/dev/c/box_dodge_3/include/g_engine/file_loading/file_reader.cpp",
+  "output": "/home/kopp/dev/c/box_dodge_3/build/CMakeFiles/box_dodge3.dir/include/g_engine/file_loading/file_reader.cpp.o"
+}
+]

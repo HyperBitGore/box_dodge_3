@@ -1,0 +1,48 @@
+cmake_minimum_required(VERSION 4.0.0)
+if(NOT CMAKE_BUILD_TYPE)
+message("build type not set, setting to debug")
+set(CMAKE_BUILD_TYPE Debug)
+endif()
+
+project(box_dodge3 VERSION 0.1.0 LANGUAGES C CXX)
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED On)
+set(CMAKE_CXX_EXTENSIONS Off)
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
+
+add_executable(box_dodge3 src/main.cpp src/game.hpp
+include/g_engine/g_engine_2d.hpp include/g_engine/audio/audio_player.cpp include/g_engine/engine_modern.cpp include/g_engine/engine_start.cpp include/g_engine/rendering/font_renderer.cpp 
+include/g_engine/function_loader.cpp include/g_engine/gl_defines.hpp include/g_engine/util/hashmap.hpp include/g_engine/img_loading/image_loader.cpp include/g_engine/input.cpp include/g_engine/util/matrix.cpp include/g_engine/util/matrix.hpp include/g_engine/util/shader.cpp include/g_engine/window.cpp include/g_engine/audio/audio.hpp include/g_engine/backend.hpp include/g_engine/util/vector.cpp 
+include/g_engine/util/vector.hpp include/g_engine/rendering/primitive_renderer.cpp include/g_engine/rendering/primitive_renderer_shader.hpp include/g_engine/rendering/image_renderer.cpp include/g_engine/img_loading/image_atlas.cpp include/g_engine/img_loading/bmp_loader.cpp include/g_engine/util/shader.hpp include/g_engine/img_loading/image_loader.hpp include/g_engine/rendering/image_renderer.hpp
+include/g_engine/rendering/image_renderer_shader.hpp
+include/g_engine/rendering/primitive_renderer.hpp include/g_engine/rendering/font_renderer.hpp include/g_engine/file_loading/font_loader.cpp include/g_engine/file_loading/font_loader.hpp include/g_engine/img_loading/png_loader.cpp
+include/g_engine/img_loading/common.hpp include/g_engine/img_loading/inflate.hpp include/g_engine/file_loading/file_reader.hpp include/g_engine/file_loading/file_reader.cpp
+include/g_engine/util/logging.hpp
+)
+
+
+
+find_package(OpenGL REQUIRED)
+
+if(WIN32)
+target_link_libraries(box_dodge3 gdi32 user32 opengl32 ole32)
+target_compile_options(box_dodge3 PRIVATE /utf-8)
+endif(WIN32)
+if(UNIX)
+find_package(X11 REQUIRED)
+find_package(ALSA REQUIRED)
+message(STATUS "X11_FOUND: ${X11_FOUND}")
+message(STATUS "X11_INCLUDE_DIR: ${X11_INCLUDE_DIR}")
+message(STATUS "X11_LIBRARIES: ${X11_LIBRARIES}")
+message(STATUS "X11_Xkblib_FOUND: ${X11_Xkb_FOUND}")
+message(STATUS "X11_Xkblib_LIB: ${X11_Xkb_INCLUDE_PATH}")
+if (NOT X11_Xkb_FOUND)
+    message(FATAL_ERROR "XKB extension not found")
+endif()
+target_include_directories(box_dodge3 PRIVATE ${X11_INCLUDE_DIR} ${X11_Xkb_INCLUDE_PATH})
+target_link_libraries(box_dodge3 OpenGL::GL dl X11::X11 X11::Xkb ALSA::ALSA)
+endif(UNIX)
+
+target_include_directories(box_dodge3 PUBLIC include/GL)
+

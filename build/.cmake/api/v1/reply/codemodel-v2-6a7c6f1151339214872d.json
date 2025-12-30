@@ -1,0 +1,708 @@
+{
+	"configurations" : 
+	[
+		{
+			"abstractTargets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "ALSA::ALSA::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ALSA__ALSA-Debug-8910706f7e5268baf461.json",
+					"name" : "ALSA::ALSA",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Fontconfig::Fontconfig::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Fontconfig__Fontconfig-Debug-c6e3bd0552127c69ba0d.json",
+					"name" : "Fontconfig::Fontconfig",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Freetype::Freetype::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Freetype__Freetype-Debug-07e281b05438ffcfa68c.json",
+					"name" : "Freetype::Freetype",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "OpenGL::EGL::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-OpenGL__EGL-Debug-7dcfcdc4f9656bca7a02.json",
+					"name" : "OpenGL::EGL",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "OpenGL::GL::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-OpenGL__GL-Debug-0c75c3cac2c45395ea8b.json",
+					"name" : "OpenGL::GL",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "OpenGL::GLES2::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-OpenGL__GLES2-Debug-6fdea30a51bbc5f9c38e.json",
+					"name" : "OpenGL::GLES2",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "OpenGL::GLES3::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-OpenGL__GLES3-Debug-e6d1bb385fd9de51d4f8.json",
+					"name" : "OpenGL::GLES3",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "OpenGL::GLU::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-OpenGL__GLU-Debug-0ca605c96594fed75a7a.json",
+					"name" : "OpenGL::GLU",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "OpenGL::GLX::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-OpenGL__GLX-Debug-69bbaad6043cd8b38f90.json",
+					"name" : "OpenGL::GLX",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "OpenGL::OpenGL::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-OpenGL__OpenGL-Debug-13107ba4246fe0254137.json",
+					"name" : "OpenGL::OpenGL",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "X11::ICE::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-X11__ICE-Debug-f8569c0bc17b7667cc16.json",
+					"name" : "X11::ICE",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "X11::SM::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-X11__SM-Debug-95254b3f6a3195ef43e6.json",
+					"name" : "X11::SM",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "X11::X11::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-X11__X11-Debug-946149bfe97a8f5da73a.json",
+					"name" : "X11::X11",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "X11::X11_xcb::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-X11__X11_xcb-Debug-8f6ff1b421388568d6e1.json",
+					"name" : "X11::X11_xcb",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "X11::Xau::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-X11__Xau-Debug-6c9e4816f693e2f4a1da.json",
+					"name" : "X11::Xau",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "X11::Xcomposite::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-X11__Xcomposite-Debug-3d0e808aff406c621707.json",
+					"name" : "X11::Xcomposite",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "X11::Xcursor::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-X11__Xcursor-Debug-928551d424e9abf8dc50.json",
+					"name" : "X11::Xcursor",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "X11::Xdamage::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-X11__Xdamage-Debug-74ea8e58199685cef7fb.json",
+					"name" : "X11::Xdamage",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "X11::Xdmcp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-X11__Xdmcp-Debug-a0fae3487e51a979be1e.json",
+					"name" : "X11::Xdmcp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "X11::Xext::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-X11__Xext-Debug-c99ca9fbc19281722441.json",
+					"name" : "X11::Xext",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "X11::Xfixes::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-X11__Xfixes-Debug-2e8e2864d771d3947b33.json",
+					"name" : "X11::Xfixes",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "X11::Xft::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-X11__Xft-Debug-d4676da4d37250247340.json",
+					"name" : "X11::Xft",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "X11::Xi::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-X11__Xi-Debug-11efed9ce92b24104faf.json",
+					"name" : "X11::Xi",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "X11::Xinerama::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-X11__Xinerama-Debug-638e3678d7b93407b8c2.json",
+					"name" : "X11::Xinerama",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "X11::Xkb::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-X11__Xkb-Debug-15573cb5817263d3dc10.json",
+					"name" : "X11::Xkb",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "X11::Xmu::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-X11__Xmu-Debug-8011975b0b6a274b6284.json",
+					"name" : "X11::Xmu",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "X11::Xpm::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-X11__Xpm-Debug-ae027c81a886f96123f8.json",
+					"name" : "X11::Xpm",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "X11::Xpresent::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-X11__Xpresent-Debug-12c3ddb4c81c7f9c733e.json",
+					"name" : "X11::Xpresent",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "X11::Xrandr::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-X11__Xrandr-Debug-d3f2fdaf4d02edf76db5.json",
+					"name" : "X11::Xrandr",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "X11::Xrender::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-X11__Xrender-Debug-a7fbfc1fecdf4e2b8133.json",
+					"name" : "X11::Xrender",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "X11::Xss::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-X11__Xss-Debug-52200bb9574529d7bdb5.json",
+					"name" : "X11::Xss",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "X11::Xt::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-X11__Xt-Debug-5c6485e1475f5efe8683.json",
+					"name" : "X11::Xt",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "X11::Xtst::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-X11__Xtst-Debug-920d2ac6152ac4e135bd.json",
+					"name" : "X11::Xtst",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "X11::Xutil::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-X11__Xutil-Debug-bfcb192e0c286661f1f9.json",
+					"name" : "X11::Xutil",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "X11::Xv::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-X11__Xv-Debug-5f59a4551198f0c64869.json",
+					"name" : "X11::Xv",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "X11::Xxf86vm::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-X11__Xxf86vm-Debug-7de395e4a5fbe6b9b380.json",
+					"name" : "X11::Xxf86vm",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "X11::xcb::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-X11__xcb-Debug-b48bcfc632a794a1f5d8.json",
+					"name" : "X11::xcb",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "X11::xcb_composite::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-X11__xcb_composite-Debug-dd34b28b4551d982717a.json",
+					"name" : "X11::xcb_composite",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "X11::xcb_cursor::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-X11__xcb_cursor-Debug-f07390def33f625e3ef1.json",
+					"name" : "X11::xcb_cursor",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "X11::xcb_damage::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-X11__xcb_damage-Debug-f067e9b6f6d91aeed7de.json",
+					"name" : "X11::xcb_damage",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "X11::xcb_dpms::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-X11__xcb_dpms-Debug-cfc0af0b6ef4f3413a80.json",
+					"name" : "X11::xcb_dpms",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "X11::xcb_dri2::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-X11__xcb_dri2-Debug-fb0dd54250f8a43d4a09.json",
+					"name" : "X11::xcb_dri2",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "X11::xcb_dri3::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-X11__xcb_dri3-Debug-0e2af61ea3598722f6aa.json",
+					"name" : "X11::xcb_dri3",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "X11::xcb_ewmh::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-X11__xcb_ewmh-Debug-4fae8be40a99599067f4.json",
+					"name" : "X11::xcb_ewmh",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "X11::xcb_glx::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-X11__xcb_glx-Debug-75343990ff7a2c8b84c6.json",
+					"name" : "X11::xcb_glx",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "X11::xcb_icccm::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-X11__xcb_icccm-Debug-4ab5816851e8e9369996.json",
+					"name" : "X11::xcb_icccm",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "X11::xcb_image::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-X11__xcb_image-Debug-83d83b71654596310a7b.json",
+					"name" : "X11::xcb_image",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "X11::xcb_keysyms::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-X11__xcb_keysyms-Debug-6b9dea21b96b41a3d816.json",
+					"name" : "X11::xcb_keysyms",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "X11::xcb_present::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-X11__xcb_present-Debug-24c9371c23deae177cba.json",
+					"name" : "X11::xcb_present",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "X11::xcb_randr::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-X11__xcb_randr-Debug-5ae02f52030c51248686.json",
+					"name" : "X11::xcb_randr",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "X11::xcb_record::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-X11__xcb_record-Debug-28bbf97112abbfe9c605.json",
+					"name" : "X11::xcb_record",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "X11::xcb_render::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-X11__xcb_render-Debug-b2299cdd95cc4e6de477.json",
+					"name" : "X11::xcb_render",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "X11::xcb_render_util::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-X11__xcb_render_util-Debug-990434dccb8d4b80a358.json",
+					"name" : "X11::xcb_render_util",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "X11::xcb_res::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-X11__xcb_res-Debug-0d1862672e5490230e3f.json",
+					"name" : "X11::xcb_res",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "X11::xcb_screensaver::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-X11__xcb_screensaver-Debug-863d7efb16f905349d82.json",
+					"name" : "X11::xcb_screensaver",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "X11::xcb_shape::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-X11__xcb_shape-Debug-0dfee8cf2c090eb5bcaf.json",
+					"name" : "X11::xcb_shape",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "X11::xcb_shm::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-X11__xcb_shm-Debug-b20a01496bf93de5219a.json",
+					"name" : "X11::xcb_shm",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "X11::xcb_sync::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-X11__xcb_sync-Debug-8bc1740f2f313d351ca5.json",
+					"name" : "X11::xcb_sync",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "X11::xcb_util::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-X11__xcb_util-Debug-0c738c43fb3c2a384493.json",
+					"name" : "X11::xcb_util",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "X11::xcb_xf86dri::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-X11__xcb_xf86dri-Debug-0bc4d693a6a2e8de250d.json",
+					"name" : "X11::xcb_xf86dri",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "X11::xcb_xfixes::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-X11__xcb_xfixes-Debug-27a7c70fa01a80ae3ccb.json",
+					"name" : "X11::xcb_xfixes",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "X11::xcb_xinerama::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-X11__xcb_xinerama-Debug-6fff84290aa5e3f09163.json",
+					"name" : "X11::xcb_xinerama",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "X11::xcb_xinput::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-X11__xcb_xinput-Debug-d5b502fe18e1b77ff224.json",
+					"name" : "X11::xcb_xinput",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "X11::xcb_xkb::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-X11__xcb_xkb-Debug-da0cd6db9b123a45c953.json",
+					"name" : "X11::xcb_xkb",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "X11::xcb_xrm::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-X11__xcb_xrm-Debug-c4df6c759abd57b7f161.json",
+					"name" : "X11::xcb_xrm",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "X11::xcb_xtest::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-X11__xcb_xtest-Debug-bde1573dd1b3dbb36e8d.json",
+					"name" : "X11::xcb_xtest",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "X11::xcb_xv::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-X11__xcb_xv-Debug-effe348f95dba8560e2d.json",
+					"name" : "X11::xcb_xv",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "X11::xcb_xvmc::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-X11__xcb_xvmc-Debug-20787dde764295b0f8d9.json",
+					"name" : "X11::xcb_xvmc",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "X11::xkbcommon::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-X11__xkbcommon-Debug-8f9660d2da28058b226e.json",
+					"name" : "X11::xkbcommon",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "X11::xkbcommon_X11::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-X11__xkbcommon_X11-Debug-beaa4e5aefc039945f26.json",
+					"name" : "X11::xkbcommon_X11",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "X11::xkbfile::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-X11__xkbfile-Debug-2ab909378662b8b172e0.json",
+					"name" : "X11::xkbfile",
+					"projectIndex" : 0
+				}
+			],
+			"directories" : 
+			[
+				{
+					"abstractTargetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14,
+						15,
+						16,
+						17,
+						18,
+						19,
+						20,
+						21,
+						22,
+						23,
+						24,
+						25,
+						26,
+						27,
+						28,
+						29,
+						30,
+						31,
+						32,
+						33,
+						34,
+						35,
+						36,
+						37,
+						38,
+						39,
+						40,
+						41,
+						42,
+						43,
+						44,
+						45,
+						46,
+						47,
+						48,
+						49,
+						50,
+						51,
+						52,
+						53,
+						54,
+						55,
+						56,
+						57,
+						58,
+						59,
+						60,
+						61,
+						62,
+						63,
+						64,
+						65,
+						66,
+						67,
+						68,
+						69,
+						70
+					],
+					"build" : ".",
+					"jsonFile" : "directory-.-Debug-9ad1a58d4644cf6543fa.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "4.0.0"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"abstractTargetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14,
+						15,
+						16,
+						17,
+						18,
+						19,
+						20,
+						21,
+						22,
+						23,
+						24,
+						25,
+						26,
+						27,
+						28,
+						29,
+						30,
+						31,
+						32,
+						33,
+						34,
+						35,
+						36,
+						37,
+						38,
+						39,
+						40,
+						41,
+						42,
+						43,
+						44,
+						45,
+						46,
+						47,
+						48,
+						49,
+						50,
+						51,
+						52,
+						53,
+						54,
+						55,
+						56,
+						57,
+						58,
+						59,
+						60,
+						61,
+						62,
+						63,
+						64,
+						65,
+						66,
+						67,
+						68,
+						69,
+						70
+					],
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "box_dodge3",
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "box_dodge3::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-box_dodge3-Debug-b3ccd05a055b7aa26268.json",
+					"name" : "box_dodge3",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/kopp/dev/c/box_dodge_3/build",
+		"source" : "/home/kopp/dev/c/box_dodge_3"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 9
+	}
+}
