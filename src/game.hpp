@@ -19,5 +19,11 @@ public:
         pos = e.pos;
         dimen = e.dimen;
     }
-
+    bool collision (Entity e) {
+        return (pos.x + dimen.x >= e.pos.x // right edge past E left edge
+            && pos.x <= e.pos.x + e.dimen.x // left edge not outside of E right edge
+            && pos.y + dimen.y >= e.pos.y // bottom edge below E top edge
+            && pos.y <= e.pos.y + e.dimen.y
+        );
+    }
 };

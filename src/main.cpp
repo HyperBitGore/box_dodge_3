@@ -9,6 +9,8 @@ gore::drawpass dr(1024, 768, GL_COLOR_ATTACHMENT0);
 Entity player(500.0f, 350.0f, 32.0f, 32.0f);
 std::vector<Entity> enemies;
 uint32_t globalWidth, globalHeight;
+uint64_t playerScore = 0;
+gore::font roboto;
 
 void renderFunction () {
     //dr.bind();
@@ -19,6 +21,8 @@ void renderFunction () {
     for (auto& i : enemies) {
         g_eng.prim_r->drawQuad(i.pos, i.dimen.x, i.dimen.y);
     }
+    g_eng.font_renderer->setColor({255.0f, 255.0f, 255.0f, 255.0f});
+    g_eng.font_renderer->drawText("Score: " + std::to_string(playerScore), &roboto, 0.0f, 64.0f, 48, g_eng.getDPI());
     //dr.unbind();
     //g_eng.img_r->drawTexture(dr.getTexture(), { 0.0f, 0.0f }, {(float)globalWidth, (float)globalHeight}, {0.0f, 1.0f, 1.0f, -1.0f});
 }
@@ -52,11 +56,27 @@ void resizeFunction (uint32_t width, uint32_t height) {
     glViewport(vpX, vpY, vpW, vpH);
 }
 
+void playerDeath () {
+    player.pos.x = 500.0f;
+    player.pos.y = 350.0f;
+    enemies.clear();
+    playerScore = 0;
+}
+
+// TODO
+// fix compound glyph rendering here
+// add score readout when you die
+// fix color
+// patterns/speed up enemy drops
+// increase speed of scoring as time passes
+
 int main () {
     g_eng.setRenderFunction(renderFunction);
     g_eng.setWindowResize(resizeFunction);
     g_eng.toggleMaintainViewport();
+    roboto = gore::fontloader::loadFont("RobotoCondensed-Regular.ttf", 0, 1321);
     double player_move_delay = 0.0f;
+    double player_score_delay = 0.0f;
     double enemy_spawn_delay = 0.0f;
     double enemy_spawn_max = 1.0f;
     double enemy_move_delay = 0.0f;
@@ -66,6 +86,7 @@ int main () {
         player_move_delay += del;
         enemy_spawn_delay += del;
         enemy_move_delay += del;
+        player_score_delay += del;
         if ( player_move_delay >= 0.001f ) {
             if ( g_eng.getKeyDown(g_a) && player.pos.x >= 0.0f) {
                 player.pos.x -= 1.0f;
@@ -82,6 +103,10 @@ int main () {
                 player_move_delay = 0;
             }
         }
+        if (player_score_delay >= 0.001f) {
+            playerScore += 1;
+            player_score_delay = 0;
+        }
         if (enemy_spawn_delay >= enemy_spawn_max) {
             float randx = randomFloat(0.0f, 800.0f);
             Entity enem(randx, 0.0f, 32.0f, 32.0f);
@@ -91,6 +116,10 @@ int main () {
         if (enemy_move_delay >= 0.001f) {
             for (size_t i = 0; i < enemies.size();) {
                 enemies[i].pos.y += 1.0f;
+                if (enemies[i].collision(player)) {
+                    playerDeath();
+                    break;
+                }
                 if (enemies[i].pos.y >= vpH + enemies[i].dimen.y) {
                     enemies.erase(enemies.begin() + i);
                 } else {
