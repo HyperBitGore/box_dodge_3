@@ -11,18 +11,35 @@ std::vector<Entity> enemies;
 uint32_t globalWidth, globalHeight;
 uint64_t playerScore = 0;
 gore::font roboto;
+enum game_mode { DEATH, GAMEPLAY };
+game_mode mode = GAMEPLAY;
 
 void renderFunction () {
     //dr.bind();
     //dr.clear();
-    g_eng.prim_r->setColor({ 0.0f, 255.0f, 0.0f, 255.0f});
-    g_eng.prim_r->drawQuad(player.pos, player.dimen.x, player.dimen.y);
-    g_eng.prim_r->setColor({255.0f, 0.0f, 0.0f, 255.0f});
-    for (auto& i : enemies) {
-        g_eng.prim_r->drawQuad(i.pos, i.dimen.x, i.dimen.y);
+    switch (mode) {
+        case GAMEPLAY:
+            g_eng.prim_r->setColor({ 0.0f, 1.0f, 0.0f,1.0f});
+            g_eng.prim_r->drawQuad(player.pos, player.dimen.x, player.dimen.y);
+            g_eng.prim_r->setColor({1.0f, 0.0f, 0.0f, 1.0f});
+            for (auto& i : enemies) {
+                g_eng.prim_r->drawQuad(i.pos, i.dimen.x, i.dimen.y);
+            }
+            g_eng.font_renderer->setColor({1.0f, 1.0f, 1.0f, 1.0f});
+            g_eng.font_renderer->drawText("Score: " + std::to_string(playerScore), &roboto, 0.0f, 64.0f, 48, g_eng.getDPI());
+        break;
+        case DEATH:
+            g_eng.prim_r->setColor({ 0.0f, 1.0f, 0.0f,1.0f});
+            g_eng.prim_r->drawQuad(player.pos, player.dimen.x, player.dimen.y);
+            g_eng.prim_r->setColor({1.0f, 0.0f, 0.0f, 1.0f});
+            for (auto& i : enemies) {
+                g_eng.prim_r->drawQuad(i.pos, i.dimen.x, i.dimen.y);
+            }
+            g_eng.font_renderer->setColor({1.0f, 1.0f, 1.0f, 1.0f});
+            g_eng.font_renderer->drawText("Score: " + std::to_string(playerScore), &roboto, 100.0f, 350.0f, 48, g_eng.getDPI());
+            g_eng.font_renderer->drawText("Press space to try again!", &roboto, 100.0f, 420.0f, 48, g_eng.getDPI());
+        break;
     }
-    g_eng.font_renderer->setColor({255.0f, 255.0f, 255.0f, 255.0f});
-    g_eng.font_renderer->drawText("Score: " + std::to_string(playerScore), &roboto, 0.0f, 64.0f, 48, g_eng.getDPI());
     //dr.unbind();
     //g_eng.img_r->drawTexture(dr.getTexture(), { 0.0f, 0.0f }, {(float)globalWidth, (float)globalHeight}, {0.0f, 1.0f, 1.0f, -1.0f});
 }
@@ -56,17 +73,20 @@ void resizeFunction (uint32_t width, uint32_t height) {
     glViewport(vpX, vpY, vpW, vpH);
 }
 
+void playerHit () {
+    mode = DEATH;
+}
+
 void playerDeath () {
     player.pos.x = 500.0f;
     player.pos.y = 350.0f;
     enemies.clear();
     playerScore = 0;
+    mode = GAMEPLAY;
 }
 
 // TODO
 // fix compound glyph rendering here
-// add score readout when you die
-// fix color
 // patterns/speed up enemy drops
 // increase speed of scoring as time passes
 
@@ -87,46 +107,56 @@ int main () {
         enemy_spawn_delay += del;
         enemy_move_delay += del;
         player_score_delay += del;
-        if ( player_move_delay >= 0.001f ) {
-            if ( g_eng.getKeyDown(g_a) && player.pos.x >= 0.0f) {
-                player.pos.x -= 1.0f;
-                player_move_delay = 0;
-            } else if ( g_eng.getKeyDown(g_d) && player.pos.x + player.dimen.x < vpW) {
-                player.pos.x += 1.0f;
-                player_move_delay = 0;
-            }
-            if ( g_eng.getKeyDown(g_w) && player.pos.y >= 0.0f) {
-                player.pos.y -= 1.0f;
-                player_move_delay = 0;
-            } else if ( g_eng.getKeyDown(g_s) && player.pos.y + player.dimen.y < vpH) {
-                player.pos.y += 1.0f;
-                player_move_delay = 0;
-            }
-        }
-        if (player_score_delay >= 0.001f) {
-            playerScore += 1;
-            player_score_delay = 0;
-        }
-        if (enemy_spawn_delay >= enemy_spawn_max) {
-            float randx = randomFloat(0.0f, 800.0f);
-            Entity enem(randx, 0.0f, 32.0f, 32.0f);
-            enemies.push_back(enem);
-            enemy_spawn_delay = 0.0f;
-        }
-        if (enemy_move_delay >= 0.001f) {
-            for (size_t i = 0; i < enemies.size();) {
-                enemies[i].pos.y += 1.0f;
-                if (enemies[i].collision(player)) {
+        switch (mode) {
+            case GAMEPLAY:
+                if ( player_move_delay >= 0.001f ) {
+                    if ( g_eng.getKeyDown(g_a) && player.pos.x >= 0.0f) {
+                        player.pos.x -= 1.0f;
+                        player_move_delay = 0;
+                    } else if ( g_eng.getKeyDown(g_d) && player.pos.x + player.dimen.x < vpW) {
+                        player.pos.x += 1.0f;
+                        player_move_delay = 0;
+                    }
+                    if ( g_eng.getKeyDown(g_w) && player.pos.y >= 0.0f) {
+                        player.pos.y -= 1.0f;
+                        player_move_delay = 0;
+                    } else if ( g_eng.getKeyDown(g_s) && player.pos.y + player.dimen.y < vpH) {
+                        player.pos.y += 1.0f;
+                        player_move_delay = 0;
+                    }
+                }
+                if (player_score_delay >= 0.001f) {
+                    playerScore += 1;
+                    player_score_delay = 0;
+                }
+                if (enemy_spawn_delay >= enemy_spawn_max) {
+                    float randx = randomFloat(0.0f, 800.0f);
+                    Entity enem(randx, 0.0f, 32.0f, 32.0f);
+                    enemies.push_back(enem);
+                    enemy_spawn_delay = 0.0f;
+                }
+                if (enemy_move_delay >= 0.001f) {
+                    for (size_t i = 0; i < enemies.size();) {
+                        enemies[i].pos.y += 1.0f;
+                        if (enemies[i].collision(player)) {
+                            playerHit();
+                            break;
+                        }
+                        if (enemies[i].pos.y >= vpH + enemies[i].dimen.y) {
+                            enemies.erase(enemies.begin() + i);
+                        } else {
+                            i++;
+                        }
+                    }
+                    enemy_move_delay = 0.0f;
+                }
+            break;
+            case DEATH:
+                if ( g_eng.getKeyDown(g_Space)) {
                     playerDeath();
-                    break;
                 }
-                if (enemies[i].pos.y >= vpH + enemies[i].dimen.y) {
-                    enemies.erase(enemies.begin() + i);
-                } else {
-                    i++;
-                }
-            }
-            enemy_move_delay = 0.0f;
+            break;
         }
+       
     }
 }
