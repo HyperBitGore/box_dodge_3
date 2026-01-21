@@ -15,7 +15,7 @@ enum game_mode { DEATH, GAMEPLAY };
 game_mode mode = GAMEPLAY;
 
 void renderFunction () {
-    //dr.bind();
+   // dr.bind();
     //dr.clear();
     switch (mode) {
         case GAMEPLAY:
@@ -57,7 +57,7 @@ void resizeFunction (uint32_t width, uint32_t height) {
     dr.resize(width, height);
     globalWidth = width;
     globalHeight = height;
-    float targetAspect = 1024.0f / 768.0f;
+    /*float targetAspect = 1024.0f / 768.0f;
     float windowAspect = (float)width / (float)height;
     int vpX = 0, vpY = 0;
     vpW = width;
@@ -70,7 +70,7 @@ void resizeFunction (uint32_t width, uint32_t height) {
         vpH = (int)(width / targetAspect);
         vpY = (height - vpH) / 2;
     }
-    glViewport(vpX, vpY, vpW, vpH);
+    glViewport(vpX, vpY, vpW, vpH);*/
 }
 
 void playerHit () {
@@ -86,14 +86,14 @@ void playerDeath () {
 }
 
 // TODO
-// fix compound glyph rendering here
 // patterns/speed up enemy drops
 // increase speed of scoring as time passes
+// switch to black borders for screen edges instead of trying to stretch
 
 int main () {
     g_eng.setRenderFunction(renderFunction);
     g_eng.setWindowResize(resizeFunction);
-    g_eng.toggleMaintainViewport();
+    // g_eng.toggleMaintainViewport();
     roboto = gore::fontloader::loadFont("RobotoCondensed-Regular.ttf", 0, 1321);
     double player_move_delay = 0.0f;
     double player_score_delay = 0.0f;
@@ -113,14 +113,14 @@ int main () {
                     if ( g_eng.getKeyDown(g_a) && player.pos.x >= 0.0f) {
                         player.pos.x -= 1.0f;
                         player_move_delay = 0;
-                    } else if ( g_eng.getKeyDown(g_d) && player.pos.x + player.dimen.x < vpW) {
+                    } else if ( g_eng.getKeyDown(g_d) && player.pos.x + player.dimen.x < 1024) {
                         player.pos.x += 1.0f;
                         player_move_delay = 0;
                     }
                     if ( g_eng.getKeyDown(g_w) && player.pos.y >= 0.0f) {
                         player.pos.y -= 1.0f;
                         player_move_delay = 0;
-                    } else if ( g_eng.getKeyDown(g_s) && player.pos.y + player.dimen.y < vpH) {
+                    } else if ( g_eng.getKeyDown(g_s) && player.pos.y + player.dimen.y < 768) {
                         player.pos.y += 1.0f;
                         player_move_delay = 0;
                     }
@@ -142,7 +142,7 @@ int main () {
                             playerHit();
                             break;
                         }
-                        if (enemies[i].pos.y >= vpH + enemies[i].dimen.y) {
+                        if (enemies[i].pos.y >= 768 + enemies[i].dimen.y) {
                             enemies.erase(enemies.begin() + i);
                         } else {
                             i++;
