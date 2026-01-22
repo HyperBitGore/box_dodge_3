@@ -26,4 +26,33 @@ public:
             && pos.y <= e.pos.y + e.dimen.y
         );
     }
+    virtual void update() {
+
+    }
+};
+
+class VerticalDropEnemy : public Entity {
+    public:
+    VerticalDropEnemy() : Entity() {
+
+    }
+    VerticalDropEnemy (float x, float y, float w, float h) : Entity(x, y, w, h) {
+
+    }
+    void update () {
+        pos.y += 1.0f;
+    }
+};
+
+class HorizontalDropEnemy : public Entity {
+    public:
+    HorizontalDropEnemy() : Entity() {
+
+    }
+    HorizontalDropEnemy (float x, float y, float w, float h) : Entity(x, y, w, h) {
+
+    }
+    void update () {
+        pos.x += 1.0f;
+    }
 };
