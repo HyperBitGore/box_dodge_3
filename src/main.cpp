@@ -97,7 +97,6 @@ void playerDeath () {
 }
 
 // TODO
-// increase speed of scoring as time passes
 // switch to black borders for screen edges instead of trying to stretch
 // actually we are going to fix shit on screen with projection matrix in shader
 
@@ -108,6 +107,8 @@ int main () {
     roboto = gore::fontloader::loadFont("RobotoCondensed-Regular.ttf", 0, 1321);
     double player_move_delay = 0.0f;
     double player_score_delay = 0.0f;
+    double player_score_speedup = 0.001f;
+    double player_score_delay_s = 0.0f;
     double enemy_spawn_delay = 0.0f;
     double enemy_move_delay = 0.0f;
     while (g_eng.updateWindow()) {
@@ -117,6 +118,7 @@ int main () {
         enemy_spawn_delay += del;
         enemy_move_delay += del;
         player_score_delay += del;
+        player_score_delay_s += del;
         switch (mode) {
             case GAMEPLAY:
                 if ( player_move_delay >= 0.001f ) {
@@ -135,9 +137,15 @@ int main () {
                         player_move_delay = 0;
                     }
                 }
-                if (player_score_delay >= 0.001f) {
+                if (player_score_delay >= player_score_speedup) {
                     playerScore += 1;
                     player_score_delay = 0;
+                }
+                if (player_score_delay_s > 2.0f) {
+                    player_score_speedup -= 0.0001f;
+                    if (player_score_speedup <= 0) {
+                        player_score_speedup = 0.0001f;
+                    }
                 }
                 if (enemy_spawn_delay >= enemy_spawn_max) {
                     float randx = randomFloat(0.0f, 800.0f);

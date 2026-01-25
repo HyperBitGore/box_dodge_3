@@ -53,6 +53,6 @@ class HorizontalDropEnemy : public Entity {
 
     }
     void update () {
-        pos.x += 1.0f;
+        pos.x += 0.5f;
     }
 };
