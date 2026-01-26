@@ -2,11 +2,11 @@
 #include <cstdint>
 #include <memory>
 #include <random>
-gore::g_engine_2d g_eng("Box Dodge 3", 1024, 768, PRIMITIVE_COMPONENT | IMAGE_COMPONENT | FONT_COMPONENT, 
+gore::g_engine_2d g_eng("Box Dodge 3", 1280, 720, PRIMITIVE_COMPONENT | IMAGE_COMPONENT | FONT_COMPONENT, 
 gore::LogType::CONSOLE
 );
 
-gore::drawpass dr(1024, 768, GL_COLOR_ATTACHMENT0);
+gore::drawpass dr(1280, 720, GL_COLOR_ATTACHMENT0);
 
 Entity player(500.0f, 350.0f, 32.0f, 32.0f);
 std::vector<std::shared_ptr<Entity>> enemies;
@@ -17,8 +17,8 @@ enum game_mode { DEATH, GAMEPLAY };
 game_mode mode = GAMEPLAY;
 
 void renderFunction () {
-   // dr.bind();
-    //dr.clear();
+    dr.clear();
+    dr.bind();
     switch (mode) {
         case GAMEPLAY:
             g_eng.prim_r->setColor({ 0.0f, 1.0f, 0.0f,1.0f});
@@ -42,8 +42,8 @@ void renderFunction () {
             g_eng.font_renderer->drawText("Press space to try again!", &roboto, 100.0f, 420.0f, 48, g_eng.getDPI());
         break;
     }
-    //dr.unbind();
-    //g_eng.img_r->drawTexture(dr.getTexture(), { 0.0f, 0.0f }, {(float)globalWidth, (float)globalHeight}, {0.0f, 1.0f, 1.0f, -1.0f});
+    dr.unbind();
+    g_eng.img_r->drawTexture(dr.getTexture(), { 0.0f, 0.0f }, {(float)globalWidth, (float)globalHeight}, {0.0f, 1.0f, 1.0f, -1.0f});
 }
 
 float randomFloat(float min, float max) {
@@ -62,23 +62,9 @@ int randomInt (int min, int max) {
 int vpW, vpH;
 
 void resizeFunction (uint32_t width, uint32_t height) {
-    dr.resize(width, height);
+    // dr.resize(width, height);
     globalWidth = width;
     globalHeight = height;
-    /*float targetAspect = 1024.0f / 768.0f;
-    float windowAspect = (float)width / (float)height;
-    int vpX = 0, vpY = 0;
-    vpW = width;
-    vpH = height;
-
-    if (windowAspect > targetAspect) {
-        vpW = (int)(width * targetAspect);
-        vpX = (width - vpW) / 2;
-    } else {
-        vpH = (int)(width / targetAspect);
-        vpY = (height - vpH) / 2;
-    }
-    glViewport(vpX, vpY, vpW, vpH);*/
 }
 
 void playerHit () {
@@ -97,13 +83,14 @@ void playerDeath () {
 }
 
 // TODO
-// switch to black borders for screen edges instead of trying to stretch
-// actually we are going to fix shit on screen with projection matrix in shader
+// fix resolution by forcing the renderers into a smaller resolution??
+// or continue trying to get framebuffer to render correctly?
 
 int main () {
     g_eng.setRenderFunction(renderFunction);
     g_eng.setWindowResize(resizeFunction);
-    // g_eng.toggleMaintainViewport();
+    g_eng.toggleMaintainViewport();
+    g_eng.toggleRendererViewportResizing();
     roboto = gore::fontloader::loadFont("RobotoCondensed-Regular.ttf", 0, 1321);
     double player_move_delay = 0.0f;
     double player_score_delay = 0.0f;
@@ -111,7 +98,9 @@ int main () {
     double player_score_delay_s = 0.0f;
     double enemy_spawn_delay = 0.0f;
     double enemy_move_delay = 0.0f;
-    while (g_eng.updateWindow()) {
+    double fullscreen_toggle_delay = 0.0f;
+    bool cont = true;
+    while (g_eng.updateWindow() && cont) {
         double del = g_eng.getDelta();
 		g_eng.updateInputState();
         player_move_delay += del;
@@ -119,6 +108,7 @@ int main () {
         enemy_move_delay += del;
         player_score_delay += del;
         player_score_delay_s += del;
+        fullscreen_toggle_delay += del;
         switch (mode) {
             case GAMEPLAY:
                 if ( player_move_delay >= 0.001f ) {
@@ -137,6 +127,14 @@ int main () {
                         player_move_delay = 0;
                     }
                 }
+                if (fullscreen_toggle_delay > 0.2f) {
+                    if ( g_eng.getKeyDown(g_f)) {
+                        g_eng.toggleFullscreen();
+                        fullscreen_toggle_delay = 0.0;
+                    } else if ( g_eng.getKeyDown(g_Escape) ) {
+                        cont = false;
+                    }
+                } 
                 if (player_score_delay >= player_score_speedup) {
                     playerScore += 1;
                     player_score_delay = 0;
