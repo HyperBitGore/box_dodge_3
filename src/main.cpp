@@ -90,7 +90,7 @@ int main () {
     g_eng.setRenderFunction(renderFunction);
     g_eng.setWindowResize(resizeFunction);
     g_eng.toggleMaintainViewport();
-    g_eng.toggleRendererViewportResizing();
+    g_eng.toggleRendererViewportResizing(IMAGE_COMPONENT | GRAYSCALE_COMPONENT);
     roboto = gore::fontloader::loadFont("RobotoCondensed-Regular.ttf", 0, 1321);
     double player_move_delay = 0.0f;
     double player_score_delay = 0.0f;
@@ -122,7 +122,7 @@ int main () {
                     if ( g_eng.getKeyDown(g_w) && player.pos.y >= 0.0f) {
                         player.pos.y -= 1.0f;
                         player_move_delay = 0;
-                    } else if ( g_eng.getKeyDown(g_s) && player.pos.y + player.dimen.y < 768) {
+                    } else if ( g_eng.getKeyDown(g_s) && player.pos.y + player.dimen.y < 720) {
                         player.pos.y += 1.0f;
                         player_move_delay = 0;
                     }
@@ -189,7 +189,7 @@ int main () {
                             playerHit();
                             break;
                         }
-                        if (enemies[i]->pos.y >= 768 + enemies[i]->dimen.y || enemies[i]->pos.x >= 800) {
+                        if (enemies[i]->pos.y >= 768 + enemies[i]->dimen.y || enemies[i]->pos.x >= 1280) {
                             enemies.erase(enemies.begin() + i);
                         } else {
                             i++;
