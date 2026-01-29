@@ -1,12 +1,15 @@
 #include "game.hpp"
+#include <GL/gl.h>
 #include <cstdint>
 #include <memory>
 #include <random>
-gore::g_engine_2d g_eng("Box Dodge 3", 1280, 720, PRIMITIVE_COMPONENT | IMAGE_COMPONENT | FONT_COMPONENT, 
+#define SCREEN_WIDTH 1280
+#define SCREEN_HEIGHT 720
+gore::g_engine_2d g_eng("Box Dodge 3", SCREEN_WIDTH, SCREEN_HEIGHT, PRIMITIVE_COMPONENT | IMAGE_COMPONENT | FONT_COMPONENT, 
 gore::LogType::CONSOLE
 );
 
-gore::drawpass dr(1280, 720, GL_COLOR_ATTACHMENT0);
+gore::drawpass dr(SCREEN_WIDTH, SCREEN_HEIGHT, GL_COLOR_ATTACHMENT0);
 
 Entity player(500.0f, 350.0f, 32.0f, 32.0f);
 std::vector<std::shared_ptr<Entity>> enemies;
@@ -17,6 +20,7 @@ enum game_mode { DEATH, GAMEPLAY };
 game_mode mode = GAMEPLAY;
 
 void renderFunction () {
+    glViewport(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
     dr.clear();
     dr.bind();
     switch (mode) {
@@ -35,7 +39,7 @@ void renderFunction () {
             g_eng.prim_r->drawQuad(player.pos, player.dimen.x, player.dimen.y);
             g_eng.prim_r->setColor({1.0f, 0.0f, 0.0f, 1.0f});
             for (auto& i : enemies) {
-                g_eng.prim_r->drawQuad(i->pos, i->dimen.x, i->dimen.y);
+                g_eng.prim_r->drawQuad(i->pos, i->dimen.x, i->dimen.y); 
             }
             g_eng.font_renderer->setColor({1.0f, 1.0f, 1.0f, 1.0f});
             g_eng.font_renderer->drawText("Score: " + std::to_string(playerScore), &roboto, 100.0f, 350.0f, 48, g_eng.getDPI());
@@ -43,6 +47,7 @@ void renderFunction () {
         break;
     }
     dr.unbind();
+    glViewport(0, 0, globalWidth, globalHeight);
     g_eng.img_r->drawTexture(dr.getTexture(), { 0.0f, 0.0f }, {(float)globalWidth, (float)globalHeight}, {0.0f, 1.0f, 1.0f, -1.0f});
 }
 
@@ -62,7 +67,6 @@ int randomInt (int min, int max) {
 int vpW, vpH;
 
 void resizeFunction (uint32_t width, uint32_t height) {
-    // dr.resize(width, height);
     globalWidth = width;
     globalHeight = height;
 }
@@ -82,15 +86,10 @@ void playerDeath () {
     enemy_spawn_count = 0;
 }
 
-// TODO
-// fix resolution by forcing the renderers into a smaller resolution??
-// or continue trying to get framebuffer to render correctly?
-
 int main () {
     g_eng.setRenderFunction(renderFunction);
     g_eng.setWindowResize(resizeFunction);
-    g_eng.toggleMaintainViewport();
-    g_eng.toggleRendererViewportResizing(IMAGE_COMPONENT | GRAYSCALE_COMPONENT);
+    g_eng.setRendererViewportMask(IMAGE_COMPONENT | GRAYSCALE_COMPONENT);
     roboto = gore::fontloader::loadFont("RobotoCondensed-Regular.ttf", 0, 1321);
     double player_move_delay = 0.0f;
     double player_score_delay = 0.0f;
@@ -115,14 +114,14 @@ int main () {
                     if ( g_eng.getKeyDown(g_a) && player.pos.x >= 0.0f) {
                         player.pos.x -= 1.0f;
                         player_move_delay = 0;
-                    } else if ( g_eng.getKeyDown(g_d) && player.pos.x + player.dimen.x < 1024) {
+                    } else if ( g_eng.getKeyDown(g_d) && player.pos.x + player.dimen.x < SCREEN_WIDTH) {
                         player.pos.x += 1.0f;
                         player_move_delay = 0;
                     }
                     if ( g_eng.getKeyDown(g_w) && player.pos.y >= 0.0f) {
                         player.pos.y -= 1.0f;
                         player_move_delay = 0;
-                    } else if ( g_eng.getKeyDown(g_s) && player.pos.y + player.dimen.y < 720) {
+                    } else if ( g_eng.getKeyDown(g_s) && player.pos.y + player.dimen.y < SCREEN_HEIGHT) {
                         player.pos.y += 1.0f;
                         player_move_delay = 0;
                     }
@@ -146,8 +145,8 @@ int main () {
                     }
                 }
                 if (enemy_spawn_delay >= enemy_spawn_max) {
-                    float randx = randomFloat(0.0f, 800.0f);
-                    float randy = randomFloat(0.0f, 768);
+                    float randx = randomFloat(0.0f, SCREEN_WIDTH);
+                    float randy = randomFloat(0.0f, SCREEN_HEIGHT);
                     std::shared_ptr<Entity> enem;
                     int max = 0;
                     if (enemy_spawn_count > 10) {
