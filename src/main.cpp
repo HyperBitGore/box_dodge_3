@@ -5,11 +5,9 @@
 #include <random>
 #define SCREEN_WIDTH 1280
 #define SCREEN_HEIGHT 720
-gore::g_engine_2d g_eng("Box Dodge 3", SCREEN_WIDTH, SCREEN_HEIGHT, PRIMITIVE_COMPONENT | IMAGE_COMPONENT | FONT_COMPONENT, 
-gore::LogType::CONSOLE
-);
+gore::g_engine_2d g_eng("Box Dodge 3", SCREEN_WIDTH, SCREEN_HEIGHT, PRIMITIVE_COMPONENT | IMAGE_COMPONENT | FONT_COMPONENT | MAINTAIN_ASPECT_RATIO_COMPONENT, 
+gore::LogType::CONSOLE, "", SCREEN_WIDTH, SCREEN_HEIGHT);
 
-gore::drawpass dr(SCREEN_WIDTH, SCREEN_HEIGHT, GL_COLOR_ATTACHMENT0);
 
 Entity player(500.0f, 350.0f, 32.0f, 32.0f);
 std::vector<std::shared_ptr<Entity>> enemies;
@@ -20,9 +18,6 @@ enum game_mode { DEATH, GAMEPLAY };
 game_mode mode = GAMEPLAY;
 
 void renderFunction () {
-    glViewport(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
-    dr.clear();
-    dr.bind();
     switch (mode) {
         case GAMEPLAY:
             g_eng.prim_r->setColor({ 0.0f, 1.0f, 0.0f,1.0f});
@@ -46,9 +41,6 @@ void renderFunction () {
             g_eng.font_renderer->drawText("Press space to try again!", &roboto, 100.0f, 420.0f, 48, g_eng.getDPI());
         break;
     }
-    dr.unbind();
-    glViewport(0, 0, globalWidth, globalHeight);
-    g_eng.img_r->drawTexture(dr.getTexture(), { 0.0f, 0.0f }, {(float)globalWidth, (float)globalHeight}, {0.0f, 1.0f, 1.0f, -1.0f});
 }
 
 float randomFloat(float min, float max) {
@@ -89,7 +81,6 @@ void playerDeath () {
 int main () {
     g_eng.setRenderFunction(renderFunction);
     g_eng.setWindowResize(resizeFunction);
-    g_eng.setRendererViewportMask(IMAGE_COMPONENT | GRAYSCALE_COMPONENT);
     roboto = gore::fontloader::loadFont("RobotoCondensed-Regular.ttf", 0, 1321);
     double player_move_delay = 0.0f;
     double player_score_delay = 0.0f;
